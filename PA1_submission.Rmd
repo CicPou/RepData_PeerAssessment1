@@ -21,6 +21,7 @@ total <- tapply(activity$steps, activity$date, sum)
 ## Then create a histogram of the total steps for each day, and store it in hist1
 hist1 <- hist(total, main = "Distribution of Total Steps per Day", xlab = "Steps")
 ```
+
 The mean and median number of steps taken each day (rounded to two decimal places) are summarised in the table below. NA values have been ignored for this calculation.
 ```{r meanmed, results = "asis", warning = FALSE}
 
@@ -80,6 +81,7 @@ imputedTotal <- tapply(imputed$steps, imputed$date, sum)
 ## Then create a histogram of the total steps for each day, and store it in hist2
 hist2 <- hist(imputedTotal, main = "Distribution of Total Steps per Day for Imputed Data Set", xlab = "Steps")
 ```
+
 It's hard to see if there has been a change, so let's compare this with the histogram we created earlier, before missing values were imputed:
 ```{r comparehist}
 ## Plot hist1 and hist2 together, using semi-transparency to see where they overlap
@@ -89,6 +91,7 @@ plot(hist2, col=rgb(1,0,0,1/4), add=T)
 ## Add a legend
 legend("topright", pch = 15, col=c(rgb(0,0,1,1/4), rgb(1,0,0,1/4)), legend = c("Before Imputation", "After Imputation"), bty = "n")
 ```
+
 The overlapping colours show that the distribution is generally the same apart from the 10,000 to 15,000 steps range, where the imputation of missing values has caused this to occur more frequently.
 
 Let's also take a look at how the mean and median values have changed as a result of imputation of missing values. Again these are rounded to two decimal places.
@@ -142,4 +145,5 @@ library(ggplot2)
 g <- ggplot(compareDays, aes(interval, mean))
 g + geom_line() + facet_wrap(~ compare, ncol = 1) + ylab("Average Steps") + xlab("Time Interval") + ggtitle("Comparison of Activity Patterns: Weekdays vs Weekends")
 ```
+
 We can see from the plot that there is a higher peak of activity at a particular time of day during weekdays, during the morning. However the remainder of the day seems to have a slightly lower level of activity compared to weekends.

@@ -20,6 +20,7 @@ hist1 <- hist(total, main = "Distribution of Total Steps per Day", xlab = "Steps
 ```
 
 ![](PA1_submission_files/figure-html/histogram1-1.png)\
+
 The mean and median number of steps taken each day (rounded to two decimal places) are summarised in the table below. NA values have been ignored for this calculation.
 
 ```r
@@ -35,7 +36,7 @@ print(xt, type = "html", include.rownames = FALSE)
 ```
 
 <!-- html table generated in R 3.2.1 by xtable 1.8-0 package -->
-<!-- Mon Jan 11 19:53:14 2016 -->
+<!-- Mon Jan 11 20:02:10 2016 -->
 <table border=1>
 <tr> <th> mean </th> <th> median </th>  </tr>
   <tr> <td align="right"> 10766.19 </td> <td align="right"> 10765.00 </td> </tr>
@@ -95,6 +96,7 @@ hist2 <- hist(imputedTotal, main = "Distribution of Total Steps per Day for Impu
 ```
 
 ![](PA1_submission_files/figure-html/histogram2-1.png)\
+
 It's hard to see if there has been a change, so let's compare this with the histogram we created earlier, before missing values were imputed:
 
 ```r
@@ -107,6 +109,7 @@ legend("topright", pch = 15, col=c(rgb(0,0,1,1/4), rgb(1,0,0,1/4)), legend = c("
 ```
 
 ![](PA1_submission_files/figure-html/comparehist-1.png)\
+
 The overlapping colours show that the distribution is generally the same apart from the 10,000 to 15,000 steps range, where the imputation of missing values has caused this to occur more frequently.
 
 Let's also take a look at how the mean and median values have changed as a result of imputation of missing values. Again these are rounded to two decimal places.
@@ -123,7 +126,7 @@ print(xt2, type = "html", include.rownames = FALSE)
 ```
 
 <!-- html table generated in R 3.2.1 by xtable 1.8-0 package -->
-<!-- Mon Jan 11 19:53:17 2016 -->
+<!-- Mon Jan 11 20:02:14 2016 -->
 <table border=1>
 <tr> <th> mean </th> <th> median </th> <th> imputedMean </th> <th> imputedMedian </th>  </tr>
   <tr> <td align="right"> 10766.19 </td> <td align="right"> 10765.00 </td> <td align="right"> 10766.19 </td> <td align="right"> 10766.19 </td> </tr>
@@ -173,4 +176,5 @@ g + geom_line() + facet_wrap(~ compare, ncol = 1) + ylab("Average Steps") + xlab
 ```
 
 ![](PA1_submission_files/figure-html/plotCompareDays-1.png)\
+
 We can see from the plot that there is a higher peak of activity at a particular time of day during weekdays, during the morning. However the remainder of the day seems to have a slightly lower level of activity compared to weekends.
